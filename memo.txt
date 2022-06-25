@@ -1,0 +1,33 @@
+react JavaScriptライブラリ　component base
+state コンポーネントが持つ可変のdata, useState関数
+useEffect 副作用の処理を関数コンポーネントで扱える
+
+■「都道府県一覧API」を取得
+・urlとAPI-keyを使用し取得→完了
+axios api通信を楽に
+
+component 見た目+機能
+class component state, props(this), render return jsx
+functional component stateless, props, return jsx
+props UIの状態や情報を管理
+map 配列の要素を順に取り出す
+
+■チェックボックスを動的に生成
+・「都道府県一覧API」から取得した情報でformのチェックボックスを生成→完了
+・uniqueキーを指定→完了(id, name)
+
+■チェックを入れると「人口構成API」を取得
+・チェックボックスにイベントを追加
+onChange
+チェックボックス生成時にonClickでメソッドを設定しておく？
+
+・unique-keyをもとに対象の都道府県の「人口構成API」にsubmit
+クエリパラメータで設定?prefCode=""
+useState
+
+
+■「人口構成API」か折れ線グラフを動的に生成
+・「人口構成API」からグラフを生成
+・画面に表示
+・チェックボックスを解除したらグラフを削除
+
