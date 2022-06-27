@@ -1,16 +1,28 @@
+■メモ
 react JavaScriptライブラリ　component base
+hooks クラスを使わずに関数ないで処理を行うことができる
 state コンポーネントが持つ可変のdata, useState関数
 useEffect 副作用の処理を関数コンポーネントで扱える
+npm/yarn パッケージマネージャー
+yarn yarn.lockでバージョン管理、バージョン違いの依存プログラムのインストールを防げる
+context コンポーネントツリー内でデータを渡す方法を提供、プロパティを直接渡せる
+provider
+router UIとURLを対応づけるためのライブラリ
+component 見た目+機能
+class component state, props(this), render return jsx
+functional component stateless, props, return jsx
+props UIの状態や情報を管理、値の受け渡し
+map 配列の要素を順に取り出す
+recharts グラフのライブラリ
+
+■ディレクトリ構造
+コードはsrc配下
+機能をまたいで使うcomponent(シンプルなボタンなど)はsrc/components配下
+providersやroutesはディレクトリを切って管理
 
 ■「都道府県一覧API」を取得
 ・urlとAPI-keyを使用し取得→完了
 axios api通信を楽に
-
-component 見た目+機能
-class component state, props(this), render return jsx
-functional component stateless, props, return jsx
-props UIの状態や情報を管理
-map 配列の要素を順に取り出す
 
 ■チェックボックスを動的に生成
 ・「都道府県一覧API」から取得した情報でformのチェックボックスを生成→完了
@@ -25,9 +37,10 @@ onChange
 クエリパラメータで設定?prefCode=""
 useState
 
-
-■「人口構成API」か折れ線グラフを動的に生成
-・「人口構成API」からグラフを生成
+■「人口構成API」から折れ線グラフを動的に生成
+・「人口構成API」から情報を取得
 ・画面に表示
 ・チェックボックスを解除したらグラフを削除
+・Recharts
+・「人口構成API」に都道府県の名前が含まれないので、「都道府県一覧API」から持ち回る必要あり
 
