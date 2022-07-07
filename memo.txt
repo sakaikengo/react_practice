@@ -14,6 +14,12 @@ functional component stateless, props, return jsx
 props UIの状態や情報を管理、値の受け渡し
 map 配列の要素を順に取り出す
 recharts グラフのライブラリ
+default export import側で自由に名前をつけることができる
+named export import側の名前も固定
+import 
+export 作成したコンポーネントを他のファイルから呼び出せる
+customhooks useXXXで使用できる
+
 
 ■ディレクトリ構造
 コードはsrc配下
@@ -43,4 +49,11 @@ useState
 ・チェックボックスを解除したらグラフを削除
 ・Recharts
 ・「人口構成API」に都道府県の名前が含まれないので、「都道府県一覧API」から持ち回る必要あり
-
+propsで受け渡し
+・チェックボックスにチェック→関数でAPIを動かす→グラフに反映
+onChangeでチェックボックスからidを取得
+listに追加していく?ある状態でチェックだとグラフから削除
+10個までしか同時呼び出しはできない
+stateが変わるたびに人口構成の方は呼び出すので第二引数を指定
+どこかに格納→もう一度押されたら削除
+どこかのクラスでAPI部分を切り出し(クラスかコンポーネント)
