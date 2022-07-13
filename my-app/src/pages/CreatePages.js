@@ -17,16 +17,28 @@ import {
 export default function CreatePages() {
 	const [prefectures, setPrefectures] = usePrefecturesAPI();
 	const [prefCode, setPrefCode] = useState(0);
+	const [prefName, setPrefName] = useState("全国");
 	const [populationCompositions, setPopulationCompositions] = usePopulationAPI(
 		prefCode
 	);
+	// グラフ生成用のhooks
+	const [prefCodeForGraph, setPrefCodeForGraph] = useState([]);
 
 	// チェックボックスがチェックされたら動く
 	const changePrefCode = (e) => {
+		// チェックされたら配列に追加、チェックを外したら配列から削除
 		if (e.target.checked) {
+			setPrefCodeForGraph([...prefCodeForGraph, e.target.id]);
 			setPrefCode(e.target.id);
+			setPrefName(e.target.name);
 		} else {
+			setPrefCodeForGraph(
+				prefCodeForGraph.filter(
+					([prefCodeForGrapha, index]) => prefCodeForGrapha !== e.target.id
+				)
+			);
 			setPrefCode(0);
+			setPrefName("全国");
 		}
 	};
 
@@ -40,7 +52,7 @@ export default function CreatePages() {
 							<input
 								type="checkbox"
 								id={prefecture.prefCode}
-								name={prefecture.prefCode}
+								name={prefecture.prefName}
 								onChange={changePrefCode}
 							></input>
 							{prefecture.prefName}
@@ -56,7 +68,12 @@ export default function CreatePages() {
 				minHeight={400}
 			>
 				<LineChart width={400} height={400} data={populationCompositions}>
-					<Line type="monotone" dataKey="value" stroke="#8884d8" />
+					<Line
+						type="monotone"
+						dataKey="value"
+						stroke="#8884d8"
+						name={prefName}
+					/>
 					<Legend
 						align="right"
 						verticalAlign="left"

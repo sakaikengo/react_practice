@@ -19,10 +19,8 @@ export default function usePopulationAPI(prefCode) {
 				},
 			})
 			.then((res) => {
-				console.log(res);
 				if (res.data.statusCode !== "429") {
 					setPopulationCompositions(res.data.result.data[0].data);
-					console.log(populationCompositions);
 				}
 			});
 	}, [prefCode]);

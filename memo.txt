@@ -16,10 +16,12 @@ map 配列の要素を順に取り出す
 recharts グラフのライブラリ
 default export import側で自由に名前をつけることができる
 named export import側の名前も固定
-import 
+import
 export 作成したコンポーネントを他のファイルから呼び出せる
 customhooks useXXXで使用できる
-
+hooks
+スプレッド構文で追加 setXXX([...fruits, 'banana'])
+filterで削除 setXXX(xXX.filter((fruits, index) => (fruit !== 'banana')))
 
 ■ディレクトリ構造
 コードはsrc配下
@@ -37,7 +39,7 @@ axios api通信を楽に
 ■チェックを入れると「人口構成API」を取得
 ・チェックボックスにイベントを追加
 onChange
-チェックボックス生成時にonClickでメソッドを設定しておく？
+チェックボックス生成時にonClickでメソッドを設定しておく→完了
 
 ・unique-keyをもとに対象の都道府県の「人口構成API」にsubmit
 クエリパラメータで設定?prefCode=""
@@ -47,6 +49,7 @@ useState
 ・「人口構成API」から情報を取得
 ・画面に表示
 ・チェックボックスを解除したらグラフを削除
+・チェックボックスで取得したものを配列に格納→解除したら削除
 ・Recharts
 ・「人口構成API」に都道府県の名前が含まれないので、「都道府県一覧API」から持ち回る必要あり
 propsで受け渡し
